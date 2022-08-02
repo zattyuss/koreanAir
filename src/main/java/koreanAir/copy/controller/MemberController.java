@@ -22,12 +22,5 @@ public class MemberController {
 		return "join/register";
 	}
 
-	@PostMapping("/register")
-	public String register(@Valid MemberVO memberVO, Errors errors) {
-		new MemberValidator().validate(memberVO, errors);
-		if (errors.hasErrors()) {
-			return "join/register";
-		}
-		return "redirect:success";
-	}
+	
 }
