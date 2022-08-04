@@ -14,7 +14,6 @@ public class CommonExceptionHandler {
 	@ExceptionHandler(NoHandlerFoundException.class)
 	@ResponseStatus(code = HttpStatus.NOT_FOUND)
 	public String notFoundPage(NoHandlerFoundException exception, Model model) {
-		System.out.println("뽈롱");
 		model.addAttribute("url", exception.getRequestURL());
 		return "errorPage/_404";
 	}

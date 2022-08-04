@@ -20,7 +20,6 @@
 		 <sec:authorize access="hasRole('MEMBER')">
 		 	<a href="${contextPath}/member/member">회원페이지</a><br>
 		 </sec:authorize>
-		 
 	</div>
 </body>
 </html>

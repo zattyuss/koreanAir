@@ -7,6 +7,11 @@
 		<result property="userId" column="userId"/>
 		<result property="userPw" column="userPw"/>
 		<result property="userName" column="userName"/>
+		<result property="userNameEng" column="userNameEng"/>
+		<result property="email" column="email"/>
+		<result property="dateOfBirth" column="dateOfBirth"/>
+		<result property="phoneNumber" column="phoneNumber"/>
+		<result property="countryOfResidence" column="countryOfResidence"/>
 		<result property="enabled" column="enabled"/>
 		<result property="regDate" column="regDate"/>
 		<result property="updateDate" column="updateDate"/>
@@ -16,6 +21,25 @@
 		<result property="userId" column="userId"/>
 		<result property="auth" column="auth"/>
 	</resultMap>
+	
+	<insert id="insert">
+		insert into member_tbl(userId,userPw,userName,userNameEng
+								,email,dateOfBirth,phoneNumber
+								,countryOfResidence
+								)
+		value(#{userId},#{userPw},#{userName},#{userNameEng}
+			 ,#{email},#{dateOfBirth},#{phoneNumber}
+			 ,#{countryOfResidence});
+	</insert>
+	
+	<insert id="authenticate">
+		insert into authorities(userId,auth)
+		value(#{userId}, #{auth});
+	</insert>
+	
+	<select id="authList" resultType="koreanAir.copy.model.AuthVO">
+		select * from authorities
+	</select>
 	
 	<select id="read" resultMap="MemberMap">
 		select * from member_tbl M

@@ -14,11 +14,20 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 public class MemberVO {
+	
 	private String userId; 
 	private String userPw;  
 	private String userName;
+	private String userNameEng;
+	private String email;
+	private String dateOfBirth;
+	private String phoneNumber;
+	private String countryOfResidence;
 	private boolean enabled;
 	private LocalDateTime regDate;
 	private LocalDateTime updateDate;
 	private List<AuthVO> authList;
+	
+	
+	
 }

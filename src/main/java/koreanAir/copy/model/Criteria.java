@@ -35,7 +35,6 @@ public class Criteria {
 	
 	// type = 'TC' ===> [T,C] collectionType
 	public String[] getTypeCollection() {
-		System.out.println("타입"+type);
 		return this.type != null ? type.split("") : new String[] {};
 	}
 }
