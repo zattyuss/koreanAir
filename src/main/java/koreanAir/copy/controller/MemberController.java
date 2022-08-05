@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import koreanAir.copy.model.MemberVO;
 import koreanAir.copy.service.MemberService;
@@ -33,5 +34,17 @@ public class MemberController {
 	@GetMapping("/myPage/{userId}")
 	public String mypage(@PathVariable String userId) {
 		return "member/myPage";
+	}
+	
+	// 아이디 조회
+	@GetMapping("/idCheck/{userId}")
+	@ResponseBody
+	public boolean findByUserId(@PathVariable String userId) {
+		MemberVO findById = service.findById(userId);
+		if(findById!=null) {
+			System.out.println("아이디 중복이다");
+			return false;
+		}
+		return true; 
 	}
 }

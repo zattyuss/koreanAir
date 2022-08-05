@@ -48,4 +48,9 @@
 		on M.userid = A.userid
 		where M.userId = #{userId}
 	</select>
+	
+	<select id="findByUserId" resultType="koreanAir.copy.model.MemberVO">
+		select * from member_tbl
+		where userId = #{userId}
+	</select>
 </mapper>

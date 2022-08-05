@@ -13,4 +13,6 @@ public interface MemberMapper {
 	void authenticate(
 			@Param("userId") String userId,
 			@Param("auth") String auth);
+	
+	MemberVO findByUserId(String userId);
 }
