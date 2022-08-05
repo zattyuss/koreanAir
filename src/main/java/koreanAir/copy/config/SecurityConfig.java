@@ -15,6 +15,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import koreanAir.copy.security.CustomUserDetailService;
 
@@ -37,6 +39,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+
+		// 스프링 시큐리어티 적용 후 한글 설정
+		CharacterEncodingFilter filter = new CharacterEncodingFilter(); 
+		filter.setEncoding("utf-8");
+		filter.setForceEncoding(true);
+		http.addFilterBefore(filter, CsrfFilter.class);
+		
 		http.authorizeRequests()
 			.antMatchers("/member/all").permitAll()
 			.antMatchers("/member/admin").access("hasRole('ROLE_ADMIN')")
@@ -54,7 +63,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.tokenValiditySeconds(604800);
 	}
    
-	
 		@Autowired
 		DataSource dataSource;
 	   @Bean
@@ -63,12 +71,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		   repo.setDataSource(dataSource);
 		   return repo; 
 	   }
-	   
 		@Bean
 		public  PasswordEncoder bcryptPwEncoder() {
 			return new BCryptPasswordEncoder();
 		}
-	
-	
 
 }

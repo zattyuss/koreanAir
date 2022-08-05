@@ -33,7 +33,7 @@
 		    	  <a class="nav-link" href="#">예매확인</a>
 		      </li>
 		      <li class="nav-item">
-		    	  <a class="nav-link" href="#">유후</a>
+		    	  <a class="nav-link" href="${contextPath}/member/signUp">회원가입</a>
 		      </li>
 	      </ul>
 	    </nav>

@@ -4,8 +4,9 @@ import koreanAir.copy.model.MemberVO;
 
 public interface MemberService {
 
-	
-	void register(MemberVO MemberVO);
+	void remove(MemberVO memberVO);
+	void modify(MemberVO memberVO);
+	void register(MemberVO memberVO);
 	
 	
 }

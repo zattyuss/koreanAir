@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<!-- 현재 사용하지 않음 : 이 소스 사용시 RootConfig에서 @ImportResouces로 사용할 수 있음 -->
 	<bean id="customAccessDenied" class="koreanAir.copy.security.CustomAccessDeniedHandler"/>
 	<bean id="customLoginSuccessHandler" class="koreanAir.copy.controller.CustomLoginSuccessHandler"/>
 	<bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>

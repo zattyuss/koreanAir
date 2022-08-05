@@ -9,6 +9,7 @@
 		<result property="userName" column="userName"/>
 		<result property="userNameEng" column="userNameEng"/>
 		<result property="email" column="email"/>
+		<result property="gender" column="gender"/>
 		<result property="dateOfBirth" column="dateOfBirth"/>
 		<result property="phoneNumber" column="phoneNumber"/>
 		<result property="countryOfResidence" column="countryOfResidence"/>
@@ -25,11 +26,11 @@
 	<insert id="insert">
 		insert into member_tbl(userId,userPw,userName,userNameEng
 								,email,dateOfBirth,phoneNumber
-								,countryOfResidence
+								,countryOfResidence,gender
 								)
 		value(#{userId},#{userPw},#{userName},#{userNameEng}
 			 ,#{email},#{dateOfBirth},#{phoneNumber}
-			 ,#{countryOfResidence});
+			 ,#{countryOfResidence},#{gender});
 	</insert>
 	
 	<insert id="authenticate">

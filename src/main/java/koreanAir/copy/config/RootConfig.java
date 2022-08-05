@@ -18,9 +18,6 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @MapperScan("koreanAir.copy.mapper")
-@ImportResource(
-		"classpath:koreanAir/config/security-context.xml" 
-		)
 @EnableTransactionManagement
 public class RootConfig {
 

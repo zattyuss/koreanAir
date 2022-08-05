@@ -5,61 +5,57 @@
 	<div class="jumbotron my-3">
 		<h3>회원가입 </h3>
 	</div>
-	<form action="${contextPath}/board/register" method="post">
+	<form action="${contextPath}/member/signUp" method="post">
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 		<div class="form-group">
         	<label><small><b>이름</b></small></label>
-        	<input type="text" class="form-control" placeholder="한글 이름 입력"/>
+        	<input type="text" name="userName" class="form-control" placeholder="한글 이름 입력"/>
         </div>
         <div class="form-group">
         	<label><small><b>영문 이름</b></small></label>
-        	<input type="text" class="form-control" placeholder="영문 이름 입력"/>
+        	<input type="text" name="userNameEng" class="form-control" placeholder="영문 이름 입력"/>
     	</div>
     	<div class="form-group">
         	<label><small><b>아이디</b></small></label>
         	<p><small>6~12자리 영문, 숫자로 입력</small></p>
-        	<input type="text" class="form-control" placeholder="아이디 입력"/>
+        	<input type="text" name="userId" class="form-control" placeholder="아이디 입력"/>
     	</div>
     	<div class="form-group">
         	<label><small><b>비밀번호 </b></small></label>
         	<p><small>영문+숫자+특수문자(@~!#$%^&*()\-=+,.?) 8자~20자 이내 입력 가능, 4자리 이상 동일 또는 연속된 숫자/문자열 입력 불가</small></p>
-        	<input type="password" class="form-control" placeholder="비밀번호 입력"/>
+        	<input type="password" name="userPw" class="form-control" placeholder="비밀번호 입력"/>
     	</div>
     	<div class="form-group">
         	<label><small><b>비밀번호 확인</b></small></label>
-        	<input type="password" class="form-control"/>
+        	<input type="password" name="confirmUserPw" class="form-control"/>
     	</div>
     	<div class="form-group">
         	<label><small><b>생년월일(YYYY.MM.DD.)</b></small></label>
-        	<input type="text" class="form-control" placeholder="YYYY.MM.DD."/>
+        	<input type="text" name="dateOfBirth" class="form-control" placeholder="YYYY.MM.DD."/>
     	</div>
     	<div class="d-flex mb-3">
 			<div class="form-check">
 				<label class="form-check-label">
-					<input type="radio" class="form-check-input" name="sex">남자
+					<input type="radio" class="form-check-input" name="gender" value="MALE">남자
 				</label>
 			</div>
 			<div class="form-check ml-3">
 				<label class="form-check-label">
-					<input type="radio" class="form-check-input" name="sex">여자
+					<input type="radio" class="form-check-input" name="gender" value="FEMALE">여자
 				</label>
 			</div>
 		</div>
 		<div class="form-group">
         	<label><small><b>이메일 주소</b></small></label>
-        	<input type="email" class="form-control" placeholder="예) jojinhyun@koreanair.com"/>
-    	</div>
-    	<div class="form-group">
-        	<label><small><b>이메일 주소 확인</b></small></label>
-        	<input type="email" class="form-control"/>
+        	<input type="email" name="email" class="form-control" placeholder="예) jojinhyun@koreanair.com"/>
     	</div>
     	<div class="form-group">
         	<label><small><b>휴대전화 번호</b></small></label>
-        	<input type="text" class="form-control" />
-        	<input type="text" class="form-control" />
+        	<input type="text" name="phoneNumber" class="form-control" />
     	</div>
     	<div class="form-group">
 		    <label for=""><b>거주국가</b></label>
-		    <select class="form-control" id="" name="">
+		    <select class="form-control" name="countryOfResidence">
 		        <option>대한민국</option>
 		        <option>중국</option>
 		        <option>일본</option>

@@ -20,6 +20,14 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 	}
 
 	@Override
+	protected Filter[] getServletFilters() {
+		CharacterEncodingFilter filter = new CharacterEncodingFilter();
+		filter.setEncoding("utf-8");
+		filter.setForceEncoding(true);
+		return new Filter[] {filter};
+	}
+	
+	@Override
 	protected String[] getServletMappings() {
 		return new String[] {"/"};
 	}
@@ -28,13 +36,5 @@ public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitiali
 	protected void customizeRegistration(Dynamic registration) {
 		MultipartConfigElement multipartConfig = new MultipartConfigElement("c:\\storage\\temp", 20971520, 41943040, 20971520);
 		registration.setMultipartConfig(multipartConfig);
-	}
-	
-	@Override
-	protected Filter[] getServletFilters() {
-		CharacterEncodingFilter filter = new CharacterEncodingFilter();
-		filter.setEncoding("utf-8");
-		filter.setForceEncoding(true);
-		return new Filter[] {filter};
 	}
 }
